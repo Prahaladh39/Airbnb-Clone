@@ -1,2 +1,4 @@
-You can direclty view the website here:
-Netlify: https://67efbe58fd31f5a214c9ce00--joyful-brioche-7c7ce1.netlify.app/
+### Functions
+
+-   `add(a, b)`: Returns the sum of two numbers.
+-   `hello()`: Returns a greeting string.
