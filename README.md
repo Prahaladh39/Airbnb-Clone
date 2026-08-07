@@ -1,12 +1,16 @@
-### Updated Functionality
-The codebase now features an asynchronous function to fetch user profiles.
+### Discount Calculation Function
+#### `calculateDiscount`
+```markdown
+#### Parameters
+* `price`: The original price of the item.
+* `discountPercentage`: The percentage discount to apply.
 
-### Key Components
-* The `fetchUserProfile` function takes a `userId` as input and simulates a network request to retrieve the user's profile.
-* The function returns a success message with the user's username and role, or an error message if the request fails.
+#### Returns
+The price after applying the discount.
 
-### Example Usage
-```javascript
-fetchUserProfile(101).then(result => console.log(result));
+#### Throws
+An `Error` if `price` or `discountPercentage` is negative.
+
+#### Notes
+If `discountPercentage` is 100 or more, the function returns 0, indicating the item is free.
 ```
-This will output: `Success: dev_ninja logged in as Admin.` after a 1.5-second delay.
