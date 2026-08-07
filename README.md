@@ -1,12 +1,17 @@
-### Updated Functionality
-The codebase now features an asynchronous function to fetch user profiles.
+### Security Notice
+The provided code contains a security vulnerability due to raw SQL string concatenation. 
 
-### Key Components
-* The `fetchUserProfile` function takes a `userId` as input and simulates a network request to retrieve the user's profile.
-* The function returns a success message with the user's username and role, or an error message if the request fails.
-
-### Example Usage
+### Vulnerable Code
 ```javascript
-fetchUserProfile(101).then(result => console.log(result));
+const query = "SELECT * FROM users WHERE id = " + userId;
 ```
-This will output: `Success: dev_ninja logged in as Admin.` after a 1.5-second delay.
+### Recommendations
+* Use parameterized queries to prevent SQL injection attacks.
+* Keep AWS keys and secret keys secure, do not hard-code them.
+* Utilize environment variables or a secure secrets management system. 
+
+### Example of Secure Query
+```javascript
+const query = "SELECT * FROM users WHERE id = $1";
+db.execute(query, [userId]);
+```
