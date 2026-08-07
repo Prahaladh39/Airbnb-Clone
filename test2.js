@@ -13,7 +13,7 @@ async function fetchUserProfile(userId) {
     return `Success: ${profile.username} logged in as ${profile.role}.`;
     
   } catch (error) {
-    return `Failed to fetch data: ${error.message}`;
+    return `Failed to fetch dataaaaa: ${error.message}`;
   }
 }
 
