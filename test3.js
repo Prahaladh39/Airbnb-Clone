@@ -8,7 +8,7 @@ function dothing(a, b, c) {
             if(z > 0) {
                 resolve(z);
             } else {
-                reject("error");
+                reject("error1");
             }
         }, 1000);
     });
