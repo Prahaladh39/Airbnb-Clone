@@ -1,12 +1,5 @@
-### Updated Functionality
-The codebase now features an asynchronous function to fetch user profiles.
+### Error Handling
+In case of an error, the `fetchUserProfile` function returns a message indicating failure to fetch data, including the error message. The error message is now prefixed with "Failed to fetch dataaaaa:". 
 
-### Key Components
-* The `fetchUserProfile` function takes a `userId` as input and simulates a network request to retrieve the user's profile.
-* The function returns a success message with the user's username and role, or an error message if the request fails.
-
-### Example Usage
-```javascript
-fetchUserProfile(101).then(result => console.log(result));
-```
-This will output: `Success: dev_ninja logged in as Admin.` after a 1.5-second delay.
+### Example Error Response
+`Failed to fetch dataaaaa: <error_message>`
