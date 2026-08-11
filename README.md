@@ -1,12 +1,17 @@
-### Updated Functionality
-The codebase now features an asynchronous function to fetch user profiles.
+### API Documentation
+#### dothing Function
+##### Description
+Asynchronous function that performs calculations and returns a promise.
 
-### Key Components
-* The `fetchUserProfile` function takes a `userId` as input and simulates a network request to retrieve the user's profile.
-* The function returns a success message with the user's username and role, or an error message if the request fails.
-
-### Example Usage
+##### Syntax
 ```javascript
-fetchUserProfile(101).then(result => console.log(result));
+dothing(a, b, c)
 ```
-This will output: `Success: dev_ninja logged in as Admin.` after a 1.5-second delay.
+
+##### Parameters
+* `a`: First number for calculation
+* `b`: Second number for calculation
+* `c`: Third number for calculation
+
+##### Returns
+A promise that resolves with the result of the calculation if it is greater than 0, or rejects with an error message.
