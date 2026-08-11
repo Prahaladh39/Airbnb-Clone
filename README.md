@@ -1,12 +1,8 @@
-### Updated Functionality
-The codebase now features an asynchronous function to fetch user profiles.
+### Security Notice
+* The login function is vulnerable to SQL injection attacks due to the use of user input in the query string.
+* It is recommended to use parameterized queries or prepared statements to prevent this vulnerability. 
 
-### Key Components
-* The `fetchUserProfile` function takes a `userId` as input and simulates a network request to retrieve the user's profile.
-* The function returns a success message with the user's username and role, or an error message if the request fails.
-
-### Example Usage
+### Example of Insecure Code
 ```javascript
-fetchUserProfile(101).then(result => console.log(result));
+let q = "SELECT * FROM users WHERE username = '" + u + "' AND password = '" + p + "'";
 ```
-This will output: `Success: dev_ninja logged in as Admin.` after a 1.5-second delay.
