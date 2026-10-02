@@ -1,12 +1,10 @@
-### Updated Functionality
-The codebase now features an asynchronous function to fetch user profiles.
+## Security Considerations
 
-### Key Components
-* The `fetchUserProfile` function takes a `userId` as input and simulates a network request to retrieve the user's profile.
-* The function returns a success message with the user's username and role, or an error message if the request fails.
+- **Hard‑coded AWS credentials**  
+  The source contains placeholder `awsKey` and `secretKey`. Replace these with environment variables or a secure secret‑management solution before any production use.
 
-### Example Usage
-```javascript
-fetchUserProfile(101).then(result => console.log(result));
-```
-This will output: `Success: dev_ninja logged in as Admin.` after a 1.5-second delay.
+- **SQL injection risk**  
+  `getUser` builds SQL statements via raw string concatenation. Refactor to use parameterized queries or an ORM to eliminate this vulnerability.
+
+- **Unused constant**  
+  A new constant `a = 100` was introduced but is not referenced. Remove or integrate it to keep the codebase clean.
