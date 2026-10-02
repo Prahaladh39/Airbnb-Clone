@@ -1,14 +1,15 @@
-function dothing(a, b, c) {
-  var x = a + b;
-  var y = c - x;
-  var z = y * 2;
-  // do some stuff
+function calculateScore(a, b, c) {
+  var total = a * b;
+  var difference = total - c;
+  var result = difference + 10;
+
+  // simulate some async work
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (z > 0) {
-        resolve(z);
+      if (result >= 0) {
+        resolve(result);
       } else {
-        reject("error");
+        reject("Calculation failed");
       }
     }, 1000);
   });
