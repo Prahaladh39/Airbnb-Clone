@@ -1,12 +1,9 @@
-### Updated Functionality
-The codebase now features an asynchronous function to fetch user profiles.
+### Security Notice
 
-### Key Components
-* The `fetchUserProfile` function takes a `userId` as input and simulates a network request to retrieve the user's profile.
-* The function returns a success message with the user's username and role, or an error message if the request fails.
+The `getUser` function still constructs SQL queries via string concatenation:
 
-### Example Usage
-```javascript
-fetchUserProfile(101).then(result => console.log(result));
+```js
+const query = "SELECT * FROM users WHERE id = " + userId;
 ```
-This will output: `Success: dev_ninja logged in as Admin.` after a 1.5-second delay.
+
+**Recommendation:** Refactor this to use parameterized queries (e.g., prepared statements) or an ORM to eliminate the risk of SQL injection.
