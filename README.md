@@ -1,12 +1,21 @@
-### Updated Functionality
-The codebase now features an asynchronous function to fetch user profiles.
+## `calculateScore(a, b, c)`
 
-### Key Components
-* The `fetchUserProfile` function takes a `userId` as input and simulates a network request to retrieve the user's profile.
-* The function returns a success message with the user's username and role, or an error message if the request fails.
+Calculates a score based on the provided parameters and returns a **Promise**.
 
-### Example Usage
-```javascript
-fetchUserProfile(101).then(result => console.log(result));
+- **Parameters**
+  - `a` *(Number)* – First multiplier.
+  - `b` *(Number)* – Second multiplier.
+  - `c` *(Number)* – Value subtracted from the product of `a` and `b`.
+
+- **Behavior**
+  1. Computes `total = a * b`.
+  2. Determines `difference = total - c`.
+  3. Adds a constant offset: `result = difference + 10`.
+  4. Simulates asynchronous work with a 1‑second delay.
+  5. Resolves with `result` if `result >= 0`; otherwise rejects with the error message **"Calculation failed"**.
+
+```js
+calculateScore(a, b, c)
+  .then(score => console.log('Score:', score))
+  .catch(err => console.error(err));
 ```
-This will output: `Success: dev_ninja logged in as Admin.` after a 1.5-second delay.
