@@ -1,12 +1,9 @@
-### Updated Functionality
-The codebase now features an asynchronous function to fetch user profiles.
+## Functions
 
-### Key Components
-* The `fetchUserProfile` function takes a `userId` as input and simulates a network request to retrieve the user's profile.
-* The function returns a success message with the user's username and role, or an error message if the request fails.
+| Function | Description |
+|----------|-------------|
+| `dothing(a, b, c)` | Adds `a` and `b`, subtracts the sum from `c`, doubles the result, and returns a `Promise` that resolves with the final value after 1 second. The promise is rejected with an error string if the computed value is not greater than 0. |
 
-### Example Usage
-```javascript
-fetchUserProfile(101).then(result => console.log(result));
-```
-This will output: `Success: dev_ninja logged in as Admin.` after a 1.5-second delay.
+### Changes
+- The insecure sample code containing hard‑coded AWS credentials and raw‑SQL concatenation has been removed.  
+- Deprecated utilities `calculateDiscount`, `calculateScore`, and the previous version of `dothing` have been removed from the codebase and the documentation.
