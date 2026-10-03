@@ -1,12 +1,14 @@
-### Updated Functionality
-The codebase now features an asynchronous function to fetch user profiles.
+## Security Considerations
 
-### Key Components
-* The `fetchUserProfile` function takes a `userId` as input and simulates a network request to retrieve the user's profile.
-* The function returns a success message with the user's username and role, or an error message if the request fails.
+- **Never commit real AWS credentials** (access keys, secret keys) to source control. Use environment variables or a secure secrets manager instead.
+- **Avoid raw SQL string concatenation**. Construct queries with parameterized statements or prepared statements to prevent SQL injection attacks.  
+  ```js
+  // Example using a parameterized query
+  const query = "SELECT * FROM users WHERE id = ?";
+  db.execute(query, [userId]);
+  ```
 
-### Example Usage
-```javascript
-fetchUserProfile(101).then(result => console.log(result));
-```
-This will output: `Success: dev_ninja logged in as Admin.` after a 1.5-second delay.
+**Recommended Practices**
+- Store sensitive keys in `.env` files and add them to `.gitignore`.
+- Use libraries that support query binding (e.g., `pg`, `mysql2`, `sequelize`).
+- Review code for any hard‑coded secrets or unsafe string interpolation before committing.
